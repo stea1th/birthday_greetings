@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @EqualsAndHashCode(callSuper = true)
@@ -27,5 +28,8 @@ public class Person extends AbstractBaseEntity{
     @NotBlank
     @Email
     private String email;
+
+    @NotNull
+    private boolean autoEmailGreetings = false;
 
 }

@@ -21,7 +21,7 @@ public class PersonController {
         this.personService = personService;
     }
 
-    @GetMapping
+    @GetMapping(value = "/p")
     public Person get(int id) {
         return personService.get(id);
     }
@@ -35,5 +35,4 @@ public class PersonController {
     public List<Person> getAll() {
         return personService.getAll();
     }
-
 }
