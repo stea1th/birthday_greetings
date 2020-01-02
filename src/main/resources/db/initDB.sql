@@ -10,7 +10,7 @@ create table person
     id integer primary key default nextval('global_seq'),
     first_name varchar(40) not null,
     last_name varchar(40) not null,
-    date_of_birth timestamp not null,
+    date_of_birth date not null,
     email varchar(50) not null
 );
 
