@@ -27,8 +27,8 @@ public class AbstractBaseEntity {
         this.id = id;
     }
 
-    public boolean isNew(){
-        return this.id == null;
-    }
+//    public boolean isNew(){
+//        return this.id == null;
+//    }
 
 }

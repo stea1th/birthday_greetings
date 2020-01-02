@@ -41,6 +41,7 @@
         <postgres.version>42.2.9</postgres.version>
         <lombok.version>1.18.10</lombok.version>
     </properties>
+
     <build>
         <plugins>
             <plugin>

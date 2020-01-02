@@ -6,13 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api/person")
+@RequestMapping(value = "/api/greetings")
 public class PersonController {
 
     private PersonService personService;
@@ -22,8 +23,8 @@ public class PersonController {
         this.personService = personService;
     }
 
-    @GetMapping(value = "/p")
-    public Person get(int id) {
+    @GetMapping(value ="/person" )
+    public Person get(@RequestParam("id") int id) {
         return personService.get(id);
     }
 
