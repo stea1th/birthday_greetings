@@ -38,7 +38,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <postgres.version>42.2.9.jre7</postgres.version>
+        <postgres.version>42.2.9</postgres.version>
         <lombok.version>1.18.10</lombok.version>
     </properties>
     <build>

@@ -1,6 +1,6 @@
 package de.stea1th.greetings;
 
-import de.stea1th.greetings.controller.PersonController;
+import de.stea1th.greetings.web.PersonController;
 import de.stea1th.greetings.entity.Person;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
