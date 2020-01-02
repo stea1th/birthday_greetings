@@ -10,4 +10,6 @@ public interface PersonRepository {
     Person get(int id);
 
     List<Person> getAllByDateOfBirth(LocalDate dateOfBirth);
+
+    List<Person> getAll();
 }

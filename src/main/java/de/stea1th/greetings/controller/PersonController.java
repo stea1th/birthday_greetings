@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/api/person")
 public class PersonController {
@@ -21,6 +24,16 @@ public class PersonController {
     @GetMapping
     public Person get(int id) {
         return personService.get(id);
+    }
+
+    @GetMapping(value = "/birth")
+    public List<Person> getAllByDateOfBirth(LocalDate dateOfBirth) {
+        return personService.getAllByDateOfBirth(dateOfBirth);
+    }
+
+    @GetMapping
+    public List<Person> getAll() {
+        return personService.getAll();
     }
 
 }

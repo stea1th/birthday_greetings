@@ -26,4 +26,9 @@ public class PersonRepositoryImpl implements PersonRepository {
     public List<Person> getAllByDateOfBirth(LocalDate dateOfBirth) {
         return crudPersonRepository.findPersonByDateOfBirth(dateOfBirth);
     }
+
+    @Override
+    public List<Person> getAll() {
+        return crudPersonRepository.findAll();
+    }
 }

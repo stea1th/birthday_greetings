@@ -27,4 +27,9 @@ public class PersonServiceImpl implements PersonService {
     public List<Person> getAllByDateOfBirth(LocalDate dateOfBirth) {
         return personRepository.getAllByDateOfBirth(dateOfBirth);
     }
+
+    @Override
+    public List<Person> getAll() {
+        return personRepository.getAll();
+    }
 }

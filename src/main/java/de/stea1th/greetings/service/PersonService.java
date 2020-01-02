@@ -11,4 +11,6 @@ public interface PersonService {
     Person get(int id);
 
     List<Person> getAllByDateOfBirth(LocalDate dateOfBirth);
+
+    List<Person> getAll();
 }
