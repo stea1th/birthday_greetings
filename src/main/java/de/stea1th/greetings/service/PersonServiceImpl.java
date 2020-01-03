@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoField;
+import java.time.temporal.Temporal;
+import java.time.temporal.TemporalField;
 import java.util.List;
 
 @Service
@@ -26,7 +29,9 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public List<Person> getAllByDateOfBirth(LocalDate dateOfBirth) {
-        return personRepository.getAllByDateOfBirth(dateOfBirth);
+        int birthMonth = dateOfBirth.get(ChronoField.MONTH_OF_YEAR);
+        int birthDay = dateOfBirth.get(ChronoField.DAY_OF_MONTH);
+        return personRepository.getAllByDateOfBirth(birthMonth, birthDay);
     }
 
     @Override

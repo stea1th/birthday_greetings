@@ -6,12 +6,6 @@ $(function () {
 
 });
 
-function getPersonName(id) {
-    $.get(url + "person", {id: id}).done(function (data) {
-        $('#person-name').text(data.firstName);
-    })
-}
-
 function getAll() {
     $.get(url).done(function (data) {
         for (var i = 0; i < data.length; i++) {
@@ -22,7 +16,8 @@ function getAll() {
                 "<th>" + person.lastName + "</th>" +
                 "<th>" + person.dateOfBirth + "</th>" +
                 "<th>" + person.email + "</th>" +
-                "<th class='checkbox-class' ><input type='checkbox' " + (person.autoEmailGreetings ? "checked" : "") + " onclick='toggleAutoEmailGreetings(" + person.id + ")' ></th>" +
+                "<th class='checkbox-class' ><input type='checkbox'" +
+                " " + (person.autoEmailGreetings ? "checked" : "") + " onclick='toggleAutoEmailGreetings(" + person.id + ")' ></th>" +
                 "</tr>";
             $("tbody").append(row);
         }

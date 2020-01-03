@@ -9,7 +9,7 @@ public interface PersonRepository {
 
     Person get(int id);
 
-    List<Person> getAllByDateOfBirth(LocalDate dateOfBirth);
+    List<Person> getAllByDateOfBirth(int birthMonth, int birthDay);
 
     List<Person> getAll();
 

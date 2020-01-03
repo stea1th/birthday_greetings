@@ -26,9 +26,4 @@ public class AbstractBaseEntity {
     protected AbstractBaseEntity(Integer id){
         this.id = id;
     }
-
-//    public boolean isNew(){
-//        return this.id == null;
-//    }
-
 }

@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Component
 @Slf4j
@@ -19,8 +21,10 @@ public class ScheduledTasks {
     @Scheduled(fixedRate = 1000)
     public void test() {
         log.info("The time is now {}", LocalDateTime.now());
-        Person person = personOperations.get(1000);
-        System.out.println(person);
+        LocalDate localDate = LocalDate.of(1985, 10, 8);
+        List<Person> allByDateOfBirth = personOperations.getAllByDateOfBirth(localDate);
+
+        allByDateOfBirth.forEach(System.out::println);
     }
 
 }
