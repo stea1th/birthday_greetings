@@ -4,7 +4,6 @@ import de.stea1th.greetings.entity.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Repository
@@ -24,7 +23,7 @@ public class PersonRepositoryImpl implements PersonRepository {
 
     @Override
     public List<Person> getAllByDateOfBirth(int birthMonth, int birthDay) {
-        return crudPersonRepository.findPersonByDateOfBirth(birthMonth, birthDay);
+        return crudPersonRepository.findPersonByMonthAndDay(birthMonth, birthDay);
     }
 
     @Override

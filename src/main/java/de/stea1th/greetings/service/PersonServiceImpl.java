@@ -2,6 +2,7 @@ package de.stea1th.greetings.service;
 
 import de.stea1th.greetings.entity.Person;
 import de.stea1th.greetings.repository.PersonRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +14,7 @@ import java.time.temporal.TemporalField;
 import java.util.List;
 
 @Service
+@Slf4j
 public class PersonServiceImpl implements PersonService {
 
     private PersonRepository personRepository;
@@ -43,8 +45,8 @@ public class PersonServiceImpl implements PersonService {
     public void toggleEmail(int id) {
         Person person = get(id);
         person.setAutoEmailGreetings(!person.isAutoEmailGreetings());
-        System.out.println(person.getDateOfBirth().toString());
         save(person);
+        log.info("Automatic email sending for {} is {}",String.format("%s %s", person.getFirstName(), person.getLastName()),  person.isAutoEmailGreetings()? "on" : "off");
     }
 
     @Override
