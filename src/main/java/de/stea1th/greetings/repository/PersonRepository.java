@@ -2,7 +2,6 @@ package de.stea1th.greetings.repository;
 
 import de.stea1th.greetings.entity.Person;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public interface PersonRepository {
