@@ -2,6 +2,7 @@ package de.stea1th.greetings.web;
 
 import de.stea1th.greetings.entity.Person;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -19,4 +20,7 @@ public interface PersonOperations {
 
     @GetMapping(value = "/")
     List<Person> getAll();
+
+    @PutMapping(value = "/toggle")
+    void toggleEmail(@RequestParam("id") int id);
 }

@@ -31,4 +31,9 @@ public class PersonRepositoryImpl implements PersonRepository {
     public List<Person> getAll() {
         return crudPersonRepository.findAll();
     }
+
+    @Override
+    public Person save(Person person) {
+        return crudPersonRepository.save(person);
+    }
 }

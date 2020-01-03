@@ -22,7 +22,7 @@ public class Person extends AbstractBaseEntity{
     @NotBlank
     private String lastName;
 
-    @NotBlank
+    @NotNull
     private LocalDate dateOfBirth;
 
     @NotBlank

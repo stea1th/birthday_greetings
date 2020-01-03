@@ -1,3 +1,5 @@
+var url = "/api/greetings/";
+
 $(function () {
 
     getAll();
@@ -5,27 +7,31 @@ $(function () {
 });
 
 function getPersonName(id) {
-    var url = "/api/greetings/person?id=" + id;
-    $.get(url).done(function (data) {
+    $.get(url + "person", {id: id}).done(function (data) {
         $('#person-name').text(data.firstName);
     })
 }
 
 function getAll() {
-    var url = "/api/greetings/";
     $.get(url).done(function (data) {
         for (var i = 0; i < data.length; i++) {
             var person = data[i];
             var row = "<tr>" +
-                // "<th>" + person.id + "</th>" +
+                "<th hidden >" + person.id + "</th>" +
                 "<th>" + person.firstName + "</th>" +
                 "<th>" + person.lastName + "</th>" +
                 "<th>" + person.dateOfBirth + "</th>" +
                 "<th>" + person.email + "</th>" +
-                "<th>" + person.autoEmailGreetings + "</th>" +
+                "<th class='checkbox-class' ><input type='checkbox' " + (person.autoEmailGreetings ? "checked" : "") + " onclick='toggleAutoEmailGreetings(" + person.id + ")' ></th>" +
                 "</tr>";
             $("tbody").append(row);
         }
     });
+}
 
+function toggleAutoEmailGreetings(id) {
+    $.ajax({
+        url: url + "toggle?id=" + id,
+        type: 'PUT'
+    });
 }

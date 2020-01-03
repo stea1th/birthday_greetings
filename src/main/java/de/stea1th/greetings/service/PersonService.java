@@ -13,4 +13,8 @@ public interface PersonService {
     List<Person> getAllByDateOfBirth(LocalDate dateOfBirth);
 
     List<Person> getAll();
+
+    void toggleEmail(int id);
+
+    Person save(Person person);
 }

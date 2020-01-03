@@ -12,4 +12,6 @@ public interface PersonRepository {
     List<Person> getAllByDateOfBirth(LocalDate dateOfBirth);
 
     List<Person> getAll();
+
+    Person save(Person person);
 }

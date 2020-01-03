@@ -4,6 +4,7 @@ import de.stea1th.greetings.entity.Person;
 import de.stea1th.greetings.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -31,5 +32,19 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public List<Person> getAll() {
         return personRepository.getAll();
+    }
+
+    @Override
+    public void toggleEmail(int id) {
+        Person person = get(id);
+        person.setAutoEmailGreetings(!person.isAutoEmailGreetings());
+        System.out.println(person.getDateOfBirth().toString());
+        save(person);
+    }
+
+    @Override
+    @Transactional
+    public Person save(Person person) {
+        return personRepository.save(person);
     }
 }

@@ -31,4 +31,9 @@ public class PersonController implements PersonOperations {
     public List<Person> getAll() {
         return personService.getAll();
     }
+
+    @Override
+    public void toggleEmail(int id) {
+        personService.toggleEmail(id);
+    }
 }
