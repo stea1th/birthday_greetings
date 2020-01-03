@@ -3,10 +3,7 @@ package de.stea1th.greetings.web;
 import de.stea1th.greetings.entity.Person;
 import de.stea1th.greetings.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
@@ -14,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/greetings")
-public class PersonController {
+public class PersonController implements PersonOperations {
 
     private PersonService personService;
 
@@ -23,17 +20,14 @@ public class PersonController {
         this.personService = personService;
     }
 
-    @GetMapping(value ="/person" )
-    public Person get(@RequestParam("id") int id) {
+    public Person get(int id) {
         return personService.get(id);
     }
 
-    @GetMapping(value = "/birth")
     public List<Person> getAllByDateOfBirth(LocalDate dateOfBirth) {
         return personService.getAllByDateOfBirth(dateOfBirth);
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Person> getAll() {
         return personService.getAll();
     }
