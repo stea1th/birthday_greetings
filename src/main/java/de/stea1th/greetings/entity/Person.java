@@ -31,5 +31,4 @@ public class Person extends AbstractBaseEntity{
 
     @NotNull
     private boolean autoEmailGreetings = false;
-
 }

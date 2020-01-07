@@ -43,6 +43,10 @@
             <artifactId>reflections</artifactId>
             <version>${reflections.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+        </dependency>
     </dependencies>
 
     <properties>

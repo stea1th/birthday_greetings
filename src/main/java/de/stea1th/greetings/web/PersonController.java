@@ -2,6 +2,7 @@ package de.stea1th.greetings.web;
 
 import de.stea1th.greetings.entity.Person;
 import de.stea1th.greetings.service.PersonService;
+import de.stea1th.greetings.xml.PersonTransport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +29,7 @@ public class PersonController implements PersonOperations {
         return personService.getAllByDateOfBirth(dateOfBirth);
     }
 
-    public List<Person> getAll() {
+    public List<PersonTransport> getAll() {
         return personService.getAll();
     }
 

@@ -2,6 +2,7 @@ package de.stea1th.greetings.service;
 
 import de.stea1th.greetings.entity.Person;
 import de.stea1th.greetings.repository.PersonRepository;
+import de.stea1th.greetings.xml.PersonTransport;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,7 @@ import java.time.temporal.ChronoField;
 import java.time.temporal.Temporal;
 import java.time.temporal.TemporalField;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -37,8 +39,11 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public List<Person> getAll() {
-        return personRepository.getAll();
+    public List<PersonTransport> getAll() {
+        return personRepository.getAll()
+                .stream()
+                .map(l-> new PersonTransport(l.getId(), l.getFirstName(), l.getLastName(), l.getDateOfBirth(), l.getEmail(), l.isAutoEmailGreetings()))
+                .collect(Collectors.toList());
     }
 
     @Override
