@@ -21,7 +21,7 @@ public interface PersonOperations {
     List<Person> getAllByDateOfBirth(LocalDate dateOfBirth);
 
     @GetMapping(produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, MediaType.TEXT_XML_VALUE })
-    List<PersonTransport> getAll();
+    List<Person> getAll();
 
     @PutMapping(value = "/toggle")
     void toggleEmail(@RequestParam("id") int id);

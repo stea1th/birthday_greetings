@@ -4,14 +4,17 @@ import de.stea1th.greetings.entity.Person;
 import de.stea1th.greetings.senders.SenderRegistry;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 
-@Component
+@Service
 @Slf4j
+@EnableScheduling
 public class ScheduledService {
 
     private final PersonService personService;
@@ -27,6 +30,7 @@ public class ScheduledService {
 
     //    @Scheduled(cron = "0 0 15 * * ?")
     @Scheduled(fixedRate = 20000)
+    @Async
     public void test() {
         LocalDate localDate = LocalDate.now();
         List<Person> allByDateOfBirth = personService.getAllByDateOfBirth(localDate);
@@ -36,11 +40,5 @@ public class ScheduledService {
                 sender.sendMessage(person, "Happy birthday!", "\"Happy birthday, dear %s!\"");
             });
         });
-//        allByDateOfBirth.forEach(person -> {
-////            emailSender.sendMessage(person, "Happy birthday!", String.format("Happy birthday, dear %s!", person.getFirstName()));
-////            if (person.isAutoEmailGreetings())
-////                log.info("Email gesendet to {} with text: {}", person.getEmail(), ));
-//        });
     }
-
 }

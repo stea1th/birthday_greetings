@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
 @Sender
 public class EmailSender implements MessageSender {
 
-    @Autowired
-    private JavaMailSender emailSender;
+//    @Autowired
+//    private JavaMailSender emailSender;
 
 //    @Autowired
 //    public EmailSender(JavaMailSender emailSender) {
@@ -37,7 +37,7 @@ public class EmailSender implements MessageSender {
     @Override
     public void sendMessage(Person person, String subject, String text) {
         if (!person.isAutoEmailGreetings()) return;
-        log.info("Email gesendet to: {}", person.getEmail());
+        log.info("Email was sent to: {}", person.getEmail());
         log.info("Subject: {}", subject);
         log.info(String.format(text, person.getFirstName()));
     }

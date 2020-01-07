@@ -39,11 +39,8 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public List<PersonTransport> getAll() {
-        return personRepository.getAll()
-                .stream()
-                .map(l-> new PersonTransport(l.getId(), l.getFirstName(), l.getLastName(), l.getDateOfBirth(), l.getEmail(), l.isAutoEmailGreetings()))
-                .collect(Collectors.toList());
+    public List<Person> getAll() {
+        return personRepository.getAll();
     }
 
     @Override

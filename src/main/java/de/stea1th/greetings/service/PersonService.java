@@ -13,7 +13,7 @@ public interface PersonService {
 
     List<Person> getAllByDateOfBirth(LocalDate dateOfBirth);
 
-    List<PersonTransport> getAll();
+    List<Person> getAll();
 
     void toggleEmail(int id);
 
