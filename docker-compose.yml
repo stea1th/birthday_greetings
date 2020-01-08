@@ -14,7 +14,7 @@ services:
     image: stea1th/birthday_greetings:latest
     container_name: spring
     environment:
-       - SPRING_DATASOURCE_URL=jdbc:postgresql://mypostgres:5432/greetings
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://mypostgres:5432/greetings
     networks:
       - birthday_greetings
     ports:
