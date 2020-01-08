@@ -1,7 +1,6 @@
 package de.stea1th.greetings.service;
 
 import de.stea1th.greetings.entity.Person;
-import de.stea1th.greetings.xml.PersonTransport;
 
 import java.time.LocalDate;
 import java.util.List;

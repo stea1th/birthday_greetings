@@ -1,0 +1,28 @@
+version: "3.7"
+services:
+  database:
+    image: postgres:latest
+    container_name: mypostgres
+    environment:
+      POSTGRES_DB: greetings
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    networks:
+      - birthday_greetings
+
+  backend:
+    image: stea1th/birthday_greetings:latest
+    container_name: spring
+    environment:
+       - SPRING_DATASOURCE_URL=jdbc:postgresql://mypostgres:5432/greetings
+    networks:
+      - birthday_greetings
+    ports:
+      - 8080:8080
+
+
+networks:
+  default:
+    external:
+      name: bridge
+  birthday_greetings:
