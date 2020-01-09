@@ -19,6 +19,4 @@ public interface CrudPersonRepository extends JpaRepository<Person, Integer> {
     @Query(value = "select * from person\n" +
             "where date_part('day', date_of_birth) = :birthDay and date_part('month', date_of_birth) = :birthMonth", nativeQuery = true)
     List<Person> findPersonByMonthAndDay(@Param("birthMonth") int birthMonth, @Param("birthDay") int birthDay);
-
-
 }

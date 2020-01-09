@@ -39,7 +39,12 @@
             </exclusions>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.200</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
@@ -66,7 +71,6 @@
         <postgres.version>42.2.9</postgres.version>
         <lombok.version>1.18.10</lombok.version>
         <reflections.version>0.9.11</reflections.version>
-        <junit.version>5.5.2</junit.version>
     </properties>
 
     <build>

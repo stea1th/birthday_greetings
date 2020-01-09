@@ -16,6 +16,7 @@ import java.util.Collections;
 
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -47,7 +48,7 @@ class PersonControllerTest {
 
     @Test
     void get_Id1000_ThenReturnPerson() throws Exception {
-        given(personService.get(1000)).willReturn(person);
+        given(personService.get(any(Integer.class))).willReturn(person);
 
         mvc.perform((get("/api/greetings/person")
                 .param("id", "1000")

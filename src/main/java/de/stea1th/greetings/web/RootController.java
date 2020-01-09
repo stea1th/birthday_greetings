@@ -10,5 +10,4 @@ public class RootController {
     public String root() {
         return "redirect:person.html";
     }
-
 }
