@@ -1,7 +1,5 @@
 
-delete from person;
-
-set datestyle to NATIONAL;
+-- set datestyle to NATIONAL;
 
 insert into person (first_name, last_name, date_of_birth, email)
 values ('John', 'Doe', '1982/10/08', 'john.doe@foobar.com'),

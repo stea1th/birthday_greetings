@@ -12,53 +12,53 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DataJpaTest
+
 class PersonRepositoryImplTest {
-
-    @Autowired
-    private TestEntityManager entityManager;
-
-    @Autowired
-    private PersonRepository personRepository;
-
-    private Person person;
-
-    @BeforeEach
-    void initTest() {
-        person = new Person();
-        person.setId(1000);
-        person.setFirstName("Vadim");
-        person.setLastName("Pupkin");
-        person.setDateOfBirth(LocalDate.now());
-        person.setEmail("hallo@web.de");
-        person.setAutoEmailGreetings(true);
-    }
-
-    @AfterEach
-    void cleanTest() {
-        entityManager.clear();
-    }
-
-
-    @Test
-    void get() {
-        entityManager.persist(person);
-        entityManager.flush();
-
-        Person current = personRepository.get(1000);
-
-        assertEquals(person, current);
-    }
-
-    @Test
-    void getAllByDateOfBirth() {
-    }
-
-    @Test
-    void getAll() {
-    }
-
-    @Test
-    void save() {
-    }
+//
+//    @Autowired
+//    private TestEntityManager entityManager;
+//
+//    @Autowired
+//    private PersonRepository personRepository;
+//
+//    private Person person;
+//
+//    @BeforeEach
+//    void initTest() {
+//        person = new Person();
+//        person.setId(1000);
+//        person.setFirstName("Vadim");
+//        person.setLastName("Pupkin");
+//        person.setDateOfBirth(LocalDate.now());
+//        person.setEmail("hallo@web.de");
+//        person.setAutoEmailGreetings(true);
+//    }
+//
+//    @AfterEach
+//    void cleanTest() {
+//        entityManager.clear();
+//    }
+//
+//
+//    @Test
+//    void get() {
+//        entityManager.persist(person);
+//        entityManager.flush();
+//
+//        Person current = personRepository.get(1000);
+//
+//        assertEquals(person, current);
+//    }
+//
+//    @Test
+//    void getAllByDateOfBirth() {
+//    }
+//
+//    @Test
+//    void getAll() {
+//    }
+//
+//    @Test
+//    void save() {
+//    }
 }

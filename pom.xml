@@ -42,8 +42,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.4.200</version>
-            <scope>test</scope>
+            <version>${h2.version}</version>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -71,6 +70,7 @@
         <postgres.version>42.2.9</postgres.version>
         <lombok.version>1.18.10</lombok.version>
         <reflections.version>0.9.11</reflections.version>
+        <h2.version>1.4.200</h2.version>
     </properties>
 
     <build>
@@ -86,6 +86,24 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>test</id>
+            <properties>
+                <activatedProperties>test</activatedProperties>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <activatedProperties>prod</activatedProperties>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
 
 
 </project>
