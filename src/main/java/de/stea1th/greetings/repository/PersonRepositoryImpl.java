@@ -22,7 +22,7 @@ public class PersonRepositoryImpl implements PersonRepository {
     }
 
     @Override
-    public List<Person> getAllByDateOfBirth(int birthMonth, int birthDay) {
+    public List<Person> getAllByDateOfBirth(String birthMonth, String birthDay) {
         return crudPersonRepository.findPersonByMonthAndDay(birthMonth, birthDay);
     }
 

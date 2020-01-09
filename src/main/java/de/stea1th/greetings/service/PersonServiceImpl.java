@@ -29,9 +29,9 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public List<Person> getAllByDateOfBirth(LocalDate dateOfBirth) {
-        int birthMonth = dateOfBirth.get(ChronoField.MONTH_OF_YEAR);
-        int birthDay = dateOfBirth.get(ChronoField.DAY_OF_MONTH);
-        return personRepository.getAllByDateOfBirth(birthMonth, birthDay);
+        int month = dateOfBirth.get(ChronoField.MONTH_OF_YEAR);
+        int day = dateOfBirth.get(ChronoField.DAY_OF_MONTH);
+        return personRepository.getAllByDateOfBirth(prependZero(month), prependZero(day));
     }
 
     @Override
@@ -44,12 +44,17 @@ public class PersonServiceImpl implements PersonService {
         Person person = get(id);
         person.setAutoEmailGreetings(!person.isAutoEmailGreetings());
         save(person);
-        log.info("Automatic email sending for {} is {}",String.format("%s %s", person.getFirstName(), person.getLastName()),  person.isAutoEmailGreetings()? "on" : "off");
+        log.info("Automatic email sending for {} is {}", String.format("%s %s", person.getFirstName(), person.getLastName()), person.isAutoEmailGreetings() ? "on" : "off");
     }
 
     @Override
     @Transactional
     public Person save(Person person) {
         return personRepository.save(person);
+    }
+
+    private String prependZero(Integer num) {
+        String number = "" + num;
+        return number.length() == 1 ? "0" + number : number;
     }
 }

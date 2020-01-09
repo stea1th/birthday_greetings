@@ -8,7 +8,7 @@ public interface PersonRepository {
 
     Person get(int id);
 
-    List<Person> getAllByDateOfBirth(int birthMonth, int birthDay);
+    List<Person> getAllByDateOfBirth(String birthMonth, String birthDay);
 
     List<Person> getAll();
 

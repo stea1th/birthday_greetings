@@ -29,16 +29,16 @@ public class ScheduledService {
     }
 
     //    @Scheduled(cron = "0 0 15 * * ?")
-//    @Scheduled(fixedRate = 20000)
-//    @Async
-//    public void test() {
-//        LocalDate localDate = LocalDate.now();
-//        List<Person> allByDateOfBirth = personService.getAllByDateOfBirth(localDate);
-//
-//        senderRegistry.getMessageSenders().forEach(sender -> {
-//            allByDateOfBirth.forEach(person -> {
-//                sender.sendMessage(person, "Happy birthday!", "\"Happy birthday, dear %s!\"");
-//            });
-//        });
-//    }
+    @Scheduled(fixedRate = 20000)
+    @Async
+    public void test() {
+        LocalDate localDate = LocalDate.now();
+        List<Person> allByDateOfBirth = personService.getAllByDateOfBirth(localDate);
+
+        senderRegistry.getMessageSenders().forEach(sender -> {
+            allByDateOfBirth.forEach(person -> {
+                sender.sendMessage(person, "Happy birthday!", "\"Happy birthday, dear %s!\"");
+            });
+        });
+    }
 }

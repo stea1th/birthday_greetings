@@ -15,8 +15,10 @@ public interface CrudPersonRepository extends JpaRepository<Person, Integer> {
 
     Optional<Person> findById(Integer id);
 
+    @Query("SELECT p " +
+            "FROM Person p " +
+            "WHERE SUBSTRING(CONCAT(p.dateOfBirth, ''), 6, 2) = :birthMonth " +
+            "AND SUBSTRING(CONCAT(p.dateOfBirth, ''), 9, 2) = :birthDay ")
+    List<Person> findPersonByMonthAndDay(@Param("birthMonth") String birthMonth, @Param("birthDay") String birthDay);
 
-    @Query(value = "select * from person\n" +
-            "where date_part('day', date_of_birth) = :birthDay and date_part('month', date_of_birth) = :birthMonth", nativeQuery = true)
-    List<Person> findPersonByMonthAndDay(@Param("birthMonth") int birthMonth, @Param("birthDay") int birthDay);
 }
