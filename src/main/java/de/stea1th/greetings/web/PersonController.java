@@ -24,10 +24,6 @@ public class PersonController implements PersonOperations {
         return personService.get(id);
     }
 
-    public List<Person> getAllByDateOfBirth(LocalDate dateOfBirth) {
-        return personService.getAllByDateOfBirth(dateOfBirth);
-    }
-
     public List<Person> getAll() {
         return personService.getAll();
     }
