@@ -70,7 +70,7 @@
         <postgres.version>42.2.9</postgres.version>
         <lombok.version>1.18.10</lombok.version>
         <reflections.version>0.9.11</reflections.version>
-        <h2.version>1.4.200</h2.version>
+        <h2.version>2.1.210</h2.version>
     </properties>
 
     <build>
